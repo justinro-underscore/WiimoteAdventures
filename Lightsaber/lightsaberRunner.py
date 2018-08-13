@@ -94,11 +94,12 @@ def checkButtons(buttons, buttonStates, activated, sounds):
     #   when it hits things)
     if buttons & cwiid.BTN_A:
         if not buttonStates['a']:
-            num = random.randint(1, 3)
-            if num == 1:
-                sounds["hit1"].play()
-            else:
-                sounds["hit2"].play()
+            if activated:
+                num = random.randint(1, 3)
+                if num == 1:
+                    sounds["hit1"].play()
+                else:
+                    sounds["hit2"].play()
             buttonStates['a'] = True
     elif buttonStates['a']:
         buttonStates['a'] = False
